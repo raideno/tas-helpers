@@ -5,7 +5,7 @@ This python package contains a bunch of utilities and helpers related to TAS (Te
 ## Installation
 
 ```bash
-pip install tas-helpers
+pip install git+https://github.com/raideno/tas-helpers.git
 ```
 
 ## Utilities
