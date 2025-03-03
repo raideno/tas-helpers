@@ -1,6 +1,6 @@
 [project]
 name = "tas-helpers"
-version = "0.2.8"
+version = "0.1.0"
 description = "A python package that includes a bunch of helper functions related to TAS (Temporal Action Segmentation)."
 authors = [
     {name = "raideno56",email = "nadirkichou@hotmail.fr"}
@@ -27,9 +27,6 @@ include = [
     { path = "README.md", format = "sdist" },
     { path = "README.md", format = "wheel" },
 ]
-
-[tool.poetry]
-exclude = ["__**"]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
