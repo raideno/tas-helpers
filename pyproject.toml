@@ -18,7 +18,7 @@ requires-python = ">=3.12"
 dependencies = [
     "numpy (>=1.9.0)",
     "pydantic (>=2.10.6,<3.0.0)",
-    "matplotlib (>=3.10.1,<4.0.0)"
+    "matplotlib (>=3.10.1,<4.0.0)",
 ]
 packages = [
     {include = "tas_helpers", from = "."}
@@ -27,7 +27,13 @@ include = [
     { path = "README.md", format = "sdist" },
     { path = "README.md", format = "wheel" },
 ]
+exclude = [
+    { path = "tests" }
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
