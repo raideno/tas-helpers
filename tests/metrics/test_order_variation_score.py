@@ -1,6 +1,6 @@
 import pytest
 
-from tas_helpers.scores.order_variation_score import order_variation_score
+from tas_helpers.scores.order_variation import order_variation_score
 
 def test_empty_sequence():
     assert order_variation_score([[]]) == 1.0

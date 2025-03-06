@@ -1,6 +1,6 @@
 import pytest
 
-from tas_helpers.scores.repetition_score import repetition_score
+from tas_helpers.scores.repetition import repetition_score
 
 def test_empty_sequence():
     assert repetition_score([]) == 0.0
