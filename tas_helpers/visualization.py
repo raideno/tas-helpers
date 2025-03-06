@@ -11,8 +11,8 @@ class SegmentationVisualizer:
         labels_names: List[str] = None,
         labels_colors: List[str] = None,
     ):
-        self.labels_values = labels_values or []
-        self.labels_names = labels_names or labels_values or []
+        self.labels_values = labels_values if labels_values is not None else []
+        self.labels_names = labels_names if labels_names is not None else labels_values
         self.labels_colors = labels_colors or SegmentationVisualizer.__derive_labels_colors(self.labels_values)
         
         assert len(self.labels_values) == len(self.labels_names)
@@ -39,9 +39,6 @@ class SegmentationVisualizer:
         figsize: Optional[Tuple[int, int]] = (12, 2),
         axis: Optional[plt.Axes] = None,
     ) -> Union[plt.Figure, plt.Axes]:
-        if not frames_labels:
-            raise ValueError("frames_labels cannot be empty")
-            
         color_map = {label: color for label, color in zip(self.labels_values, self.labels_colors)}
         
         grouped_labels = frame_level_annotations_to_segment_level_annotations(frames_labels, fps)
