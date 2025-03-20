@@ -1,7 +1,7 @@
 import numpy as np
 
 from typing import List, Any
-from tas_helpers.metrics.edit_distance import edit_distance
+from Levenshtein import distance
 
 # SOURCE: https://arxiv.org/pdf/2210.10352
 def order_variation_score(frame_level_videos_annotations: List[List[Any]]) -> float:
@@ -17,7 +17,7 @@ def order_variation_score(frame_level_videos_annotations: List[List[Any]]) -> fl
     # NOTE: compute the total edit distance and find the maximum sequence length
     for i in range(num_videos):
         for j in range(i + 1, num_videos):
-            edit_dist = edit_distance(frame_level_videos_annotations[i], frame_level_videos_annotations[j])
+            edit_dist = distance(frame_level_videos_annotations[i], frame_level_videos_annotations[j])
             total_edit_distance += edit_dist
             max_length = max(max_length, len(frame_level_videos_annotations[i]), len(frame_level_videos_annotations[j]))
 
