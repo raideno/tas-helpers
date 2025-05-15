@@ -14,7 +14,7 @@ repository = "https://github.com/raideno/tas-helpers"
 keywords = ["tas-helpers", "tas", "temporal action segmentation"]
 readme = "README.md"
 
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
     "numpy (>=1.9.0)",
     "pydantic (>=2.10.6,<3.0.0)",
