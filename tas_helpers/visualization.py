@@ -28,7 +28,7 @@ class SegmentationVisualizer:
         self,
         # --- --- ---
         frames_labels: List[str],
-        fps: Optional[int] = None,
+        fps: int,
         # --- --- ---
         header: Optional[str] = None,
         footer: Optional[str] = None,
@@ -51,9 +51,12 @@ class SegmentationVisualizer:
         xticks = []
         xtick_labels = []
         
+        boundary_times = set()
+        
         for label, start, end in grouped_labels:
-            start_time = start / fps
-            end_time = (end + 1) / fps
+            # NOTE: start and end are already in milliseconds, convert to seconds
+            start_time = start / 1000
+            end_time = end / 1000
             axis.barh(
                 y=0,
                 width=end_time - start_time,
@@ -61,14 +64,11 @@ class SegmentationVisualizer:
                 color=color_map[label],
                 height=bar_height
             )
-            xticks.append(start_time)
-            xtick_labels.append(f"{start_time:.1f}")
+            boundary_times.add(start_time)
+            boundary_times.add(end_time)
         
-        if grouped_labels:
-            _, _, last_end = grouped_labels[-1]
-            end_time = (last_end + 1) / fps
-            xticks.append(end_time)
-            xtick_labels.append(f"{end_time:.1f}")
+        xticks = sorted(boundary_times)
+        xtick_labels = [f"{tick:.1f}" for tick in xticks]
 
         if show_legend:
             legend_elements = [
