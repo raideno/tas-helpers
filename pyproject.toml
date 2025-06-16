@@ -19,6 +19,7 @@ dependencies = [
     "pydantic (>=2.10.6,<3.0.0)",
     "matplotlib (>=3.10.1,<4.0.0)",
     "python-levenshtein (>=0.27.1,<0.28.0)",
+    "scikit-learn (>=1.7.0,<2.0.0)",
 ]
 packages = [
     {include = "tas_helpers", from = "."}
