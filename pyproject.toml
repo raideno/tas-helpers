@@ -16,10 +16,10 @@ readme = "README.md"
 
 requires-python = ">=3.10"
 dependencies = [
-    "numpy (>=1.9.0)",
     "pydantic (>=2.10.6,<3.0.0)",
     "matplotlib (>=3.10.1,<4.0.0)",
     "python-levenshtein (>=0.27.1,<0.28.0)",
+    "scikit-learn (>=1.7.0,<2.0.0)",
 ]
 packages = [
     {include = "tas_helpers", from = "."}
