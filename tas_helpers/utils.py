@@ -1,4 +1,4 @@
-import numpy as np
+import random
 
 from typing import List, Tuple, Any
 
@@ -56,15 +56,15 @@ def generate_random_segmentation(
         List of labels for each frame
     """
     if labels is None:
-        labels = ["grimpe", "chrono", "lecture", "nothing", "brossage"]
+        labels = ["label1", "label2", "label3"]
     
     result = []
     frames_left = length
     
     while frames_left > 0:
         # NOTE: select a random label and length
-        label = np.random.choice(labels)
-        segment_length = min(np.random.randint(min_segment_length, max_segment_length), frames_left)
+        label = random.choice(labels)
+        segment_length = min(random.randint(min_segment_length, max_segment_length), frames_left)
         
         # NOTE: add to the result
         result.extend([label] * segment_length)
