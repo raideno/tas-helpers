@@ -1,3 +1,6 @@
+> [!WARNING]
+> This project is deprecated and isn't maintenained any more, use [plotly's timeline](https://plotly.com/python-api-reference/generated/plotly.express.timeline.html) instead for better visualizations.
+
 # 🎬 TAS-Helpers
 
 A lightweight Python package providing essential utilities for **Temporal Action Segmentation** (TAS). Whether you're visualizing segmentations, converting annotations, or evaluating model performance, TAS-Helpers has you covered.
